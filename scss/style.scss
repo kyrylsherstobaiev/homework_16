@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100;300;400;500;600;700;800&family=Roboto:wght@400;500;700;900&display=swap");
+
+body {
+	font-family: "Roboto", sans-serif;
+}
+
+section {
+	margin-bottom: 10px;
+	padding: 10px;
+	border-radius: 4px;
+	background: rgba(248, 244, 244, 0.856);
+}
+
+p {
+	margin: 0;
+}
+
+img {
+	margin-right: 10px;
+	width: 2rem;
+}
+
+.wrapper {
+	max-width: 900px;
+}
+
+.inner_img {
+	display: flex;
+	align-items: center;
+}
+
+.inner_first {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.inner_second {
+	display: flex;
+	align-items: center;
+	font-weight: 700;
+	color: rgb(46, 44, 44);
+}
+
+.lightblue {
+	background: rgb(210, 210, 250);
+	padding: 5px 15px;
+	border-radius: 4px;
+}
+.middleblue {
+	background: rgba(174, 180, 236, 0.815);
+	padding: 5px 15px;
+	border-radius: 4px;
+}
+.lightrose {
+	background: rgb(245, 196, 196);
+	padding: 5px 15px;
+	border-radius: 4px;
+}
+
+.inner_courses {
+	display: flex;
+	margin-right: 10px;
+	margin-top: 5px;
+	//border: 1px solid rgb(192, 187, 187);
+	padding: 10px;
+	border-radius: 4px;
+	background: rgb(210, 210, 250);
+}
+
+.inner_courses_wrap {
+	display: flex;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+.inner__courses_admin,
+.inner__courses_lector {
+	//border: 1px solid rgb(192, 187, 187);
+	padding: 10px;
+	border-radius: 4px;
+	margin: 5px;
+	background: rgba(174, 180, 236, 0.815);
+	div {
+		margin: 5px 0;
+	}
+}
+
+.inner__courses_lector {
+	background: rgb(245, 196, 196);
+}
+
+.inner_courses_secwrap {
+	display: flex;
+}
+
+.inner_courses_lector {
+	display: flex;
+}
+
+.caps {
+	text-transform: capitalize;
+}
+
+.mark {
+	padding: 2px 5px;
+	margin: 5px;
+	border-radius: 5px;
+}
