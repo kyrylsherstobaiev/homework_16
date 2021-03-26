@@ -1,5 +1,7 @@
 const WRAPPER = document.querySelector('#wrapper');
 
+const GRADATION_TEXT = ["Satisfaction", "Good", "Very Good", "Excellent"];
+
 const ALL_USERS = {
 	roles: {
 		admin: "https://www.flaticon.com/svg/static/icons/svg/1424/1424453.svg",
@@ -127,13 +129,13 @@ class Users {
 					function markGrade(mark) {
 						let arrGrad = ALL_USERS.gradation;
 						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">Satisfaction</span>`;
+							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
 						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">Good</span>`;
+							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
 						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">Very good</span>`;
+							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
 						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">Excellent</span>`;
+							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
 						}
 					}
 
@@ -181,13 +183,13 @@ class Admin extends Users {
 					function markGrade(mark) {
 						let arrGrad = ALL_USERS.gradation;
 						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">Satisfaction</span>`;
+							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
 						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">Good</span>`;
+							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
 						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">Very good</span>`;
+							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
 						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">Excellent</span>`;
+							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
 						}
 					}
 
@@ -235,13 +237,13 @@ class Lector extends Users {
 					function markGrade(mark) {
 						let arrGrad = ALL_USERS.gradation;
 						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">Satisfaction</span>`;
+							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
 						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">Good</span>`;
+							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
 						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">Very good</span>`;
+							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
 						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">Excellent</span>`;
+							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
 						}
 					}
 
