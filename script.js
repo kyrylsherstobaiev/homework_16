@@ -272,7 +272,7 @@ class Lector extends Users {
 function makeUserObj(user) {
 	let newObj = {};
 	for (let key in ALL_USERS) {
-		key == "users" ? newObj[key] = (ALL_USERS[key].filter((elem) => elem.role == `${user}`)) : ALL_USERS[key]
+		key == "users" ? newObj[key] = (ALL_USERS[key].filter((elem) => elem.role == `${user}`)) : ALL_USERS[key];
 	}
 	return newObj;
 }
