@@ -272,12 +272,7 @@ class Lector extends Users {
 function makeUserObj(user) {
 	let newObj = {};
 	for (let key in ALL_USERS) {
-		if (key == "users") {
-			let newArr = ALL_USERS[key].filter((elem) => elem.role == `${user}`);
-			newObj[key] = newArr;
-		} else {
-			newObj[key] = ALL_USERS[key];
-		}
+		key == "users" ? newObj[key] = (ALL_USERS[key].filter((elem) => elem.role == `${user}`)) : ALL_USERS[key]
 	}
 	return newObj;
 }
@@ -287,8 +282,7 @@ const USER_ADMIN = makeUserObj("admin");
 const USER_LECTOR = makeUserObj("lector")
 
 function assignUserClass(classUser, user) {
-	let assingUser = Object.assign(classUser, user);
-	return assingUser;
+	return Object.assign(classUser, user);
 }
 
 let protoStudent = assignUserClass(new Student(), USER_STUDENT);
