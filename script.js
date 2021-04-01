@@ -109,6 +109,26 @@ const ALL_USERS = {
 
 class Users {
 
+	markGrade(mark) {
+		let arrGrad = ALL_USERS.gradation;
+		if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
+			return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
+		} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
+			return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
+		} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
+			return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
+		} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
+			return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
+		}
+	}
+
+	getGrad(item) {
+		return `<div class="inner_courses">
+							<div>${item.title}:</div>
+							<div>${this.markGrade(item.mark)}</div>
+					</div>`
+	}
+
 	getUsers() {
 
 		let users = this.users;
@@ -124,27 +144,7 @@ class Users {
 			let coursesArr = [];
 
 			if (elem.courses) {
-				coursesArr = elem.courses.map((item) => {
-
-					function markGrade(mark) {
-						let arrGrad = ALL_USERS.gradation;
-						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
-						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
-						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
-						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
-						}
-					}
-
-					return `<div class="inner_courses">
-									<div>${item.title}:</div>
-									<div>${markGrade(item.mark)}</div>
-							</div>`
-				});
-				coursesArr = coursesArr.join('');
+				coursesArr = elem.courses.map((item) => this.getGrad(item)).join('');
 			}
 
 			return `<section>
@@ -163,109 +163,24 @@ class Users {
 class Student extends Users { };
 
 class Admin extends Users {
-	getUsers() {
 
-		let users = this.users;
-
-		let arrUsers = users.map((elem) => {
-			let imgUser;
-			for (let item in ALL_USERS.roles) {
-				if (elem.role == item) {
-					imgUser = ALL_USERS.roles[item];
-				}
-			}
-
-			let coursesArr = [];
-
-			if (elem.courses) {
-				coursesArr = elem.courses.map((item) => {
-
-					function markGrade(mark) {
-						let arrGrad = ALL_USERS.gradation;
-						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
-						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
-						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
-						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
-						}
-					}
-
-					return `	<div class="inner__courses_admin">
-										<div class="class="inner__courses_admin_marg">Title: <b>${item.title}</b></div>
-										<div class="class="inner__courses_admin_marg">Admin's score:${markGrade(item.score)}</div>
-										<div class="class="inner__courses_admin_marg">Lector: <b>${item.lector}</b></div>
-								</div>`
-				});
-				coursesArr = coursesArr.join('');
-			}
-
-			return `<section>
-							<div class="inner_first">
-								<div><div class="inner_img"><img src="${elem.img}">
-								<div><p>Name: <b>${elem.name}</b></p><p>Age: <b>${elem.age}</b></p></div></div></div>
-								<div class="inner_second middleblue"><img src="${imgUser}"><p class="caps">${elem.role}</p></div>
-							</div>
-							<div class="inner_courses_secwrap">${coursesArr}</div>
-						</section>`;
-		});
-		return arrUsers.join('');
+	getGrad(item) {
+		return `	<div class="inner__courses_admin">
+						<div class="class="inner__courses_admin_marg">Title: <b>${item.title}</b></div>
+						<div class="class="inner__courses_admin_marg">Admin's score:${this.markGrade(item.score)}</div>
+						<div class="class="inner__courses_admin_marg">Lector: <b>${item.lector}</b></div>
+					</div>`
 	}
 };
 
 class Lector extends Users {
 
-	getUsers() {
-
-		let users = this.users;
-
-		let arrUsers = users.map((elem) => {
-			let imgUser;
-			for (let item in ALL_USERS.roles) {
-				if (elem.role == item) {
-					imgUser = ALL_USERS.roles[item];
-				}
-			}
-
-			let coursesArr = [];
-
-			if (elem.courses) {
-				coursesArr = elem.courses.map((item) => {
-
-					function markGrade(mark) {
-						let arrGrad = ALL_USERS.gradation;
-						if (mark > arrGrad[0][0] && mark <= arrGrad[0][1]) {
-							return `<span class="mark" style="background:#ffe4c4; color:#ff4500;">${GRADATION_TEXT[0]}</span>`;
-						} else if (mark > arrGrad[1][0] && mark <= arrGrad[1][1]) {
-							return `<span class="mark" style="background:#00bfff; color:#0000cd;">${GRADATION_TEXT[1]}</span>`;
-						} else if (mark > arrGrad[2][0] && mark <= arrGrad[2][1]) {
-							return `<span class="mark" style="background:#87ceeb; color:#4b0082;">${GRADATION_TEXT[2]}</span>`;
-						} else if (mark > arrGrad[3][0] && mark <= arrGrad[3][1]) {
-							return `<span class="mark" style="background:#7cfc00; color:#008000;">${GRADATION_TEXT[3]}</span>`;
-						}
-					}
-
-					return `	<div class="inner__courses_lector">
-									<div>Title: <b>${item.title}</b></div>
-									<div>Lector's score: <span>${markGrade(item.score)}</span></div>
-									<div>Average student's score:${markGrade(item.studentsScore)}</div>
-								</div>`
-				});
-				coursesArr = coursesArr.join('');
-			}
-
-			return `<section>
-							<div class="inner_first">
-								<div><div class="inner_img"><img src="${elem.img}">
-								<div><p>Name: <b>${elem.name}</b></p><p>Age: <b>${elem.age}</b></p></div></div></div>
-								<div class="inner_second lightrose"><img src="${imgUser}"><p class="caps">${elem.role}</p></div>
-							</div>
-						<div class="inner_courses_lector">${coursesArr}</div>
-					</section>`;
-		});
-		return arrUsers.join('');
+	getGrad(item) {
+		return `	<div class="inner__courses_lector">
+		<div>Title: <b>${item.title}</b></div>
+		<div>Lector's score: <span>${this.markGrade(item.score)}</span></div>
+		<div>Average student's score:${this.markGrade(item.studentsScore)}</div>
+	</div>`
 	}
 };
 
